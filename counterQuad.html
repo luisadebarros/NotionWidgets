@@ -3,132 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+    <title>Time Left in 2020</title>
     <style>
-
-body{
-    background-color: white;
-}
-  
-#timer {
-  color: #eeeeee;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-  font-size: .7em;
-  letter-spacing: 5px;
-}
-
-.days, .hours, .minutes, .seconds {
-  display: inline-block;
-  padding: 20px;
-  width: 100px;
-  border-radius: 5px;
-}
-
-.days {
-  background: #EF2F3C;
-}
-
-.hours {
-  background: #eeeeee;
-  color: #183059;
-}
-
-.minutes {
-  background: #276FBF;
-}
-
-.seconds {
-  background: #F0A202;
-}
-
-.numbers {
-  font-family: 'Montserrat', sans-serif;
-  color:  #183059;
-  font-size: 4em;
-  text-align: center;
-}
-
-.white {
-  position: absolute;
-  background:  #eeeeee;
-  height: 85px;
-  width: 75px;
-  left: 30%;
-  top: 2%;
-}
-
-.red {
-  position: absolute;
-  background:  #EF2F3C;
-  left: 18%;
-  top: 9%;
-  height: 65px;
-  width: 70px;
- 
-}
-
-.blue {
-  position: absolute;
-  background:  #276FBF;
-  height: 80px;
-  width: 80px;
-  left: 60%;
-  top: 5%;
-
-
-}
+        
+        body{
+            text-align: center;
+            font-family: 'Fjalla One', sans-serif;
+            background-color: #fff;
+        }
+        .box{
+            display: inline-block;
+            display: inline-block;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #days{
+            background-color:#0f4d4f;
+        }
+        #hours{
+            background-color:#4CAF50;
+        }
+        #minutes{
+            background-color:#76250b;
+        }
+        h2{
+            display: inline-block;
+            margin-right: 10px;
+        }
 
 
     </style>
 </head>
 <body>
+    <div id="counter">
+        <h2>
+            Time left in 2021
+        </h2>    
+        
+            <h2 class="box" id="days"></h2>
+            <h2 class="box" id="hours"></h2>
+            <h2 class="box" id="minutes"></h2>
+
+    </div>
     
-<div id="timer">
 
-    <div class="days"> 
-        <div id="days" class="numbers "> </div>days</div> 
-      <div class="hours"> 
-        <div  id="hours" class="numbers"> </div>hours</div> 
-      <div class="minutes"> 
-        <div  id="minutes" class="numbers"> </div>minutes</div> 
-      <div   class="seconds"> 
-        <div id="seconds" class="numbers"> </div>seconds</div> 
-      </div>
 
-</div>
 
-</body>
+
 <script>
-    const year = new Date().getFullYear();
-const myDate = new Date('Oct 15, 2024 00:00:00');
-console.log(myDate);
+    function CountDownTimer  (date) {
+    left_days = document.getElementById("days");
+    left_hours = document.getElementById("hours");
+    left_minutes = document.getElementById("minutes");
 
-// countdown
-let timer = setInterval(function() {
+    end = new Date(date);
+    _second = 1000;
+    _minute = _second * 60;
+    _hour = _minute * 60;
+    _day = _hour * 24;
+    }
+    function showRemaining (){
+    now = new Date();
+    distance = end - now;
+    distance2 = new Date("01/01/2024 00:00 AM") - now
+    if (distance <= 0 ){
+      clearInterval (timer)
+      document.getElementById("counter").innerHTML = "<h2>Nothing! It's Over<h2>";
+      return
+    }
+    else if (distance2 > 0  ){
+      clearInterval (timer)
+      document.getElementById("counter").innerHTML =  "<h2>2021 Didn't Start yet!</h2>";
+      return
+    } 
+    days = Math.floor(distance / _day)
+    hours = Math.floor((distance % _day) / _hour)
+    minutes = Math.floor((distance % _hour) / _minute)
+    left_days.innerHTML = days + " days "
+    left_hours.innerHTML = hours + " hours "
+    left_minutes.innerHTML = minutes + " mins "
+    }
+    
 
-  // get today's date
-  const today = new Date().getTime();
-
-  // get the difference
-  const diff = myDate - today;
-
-  // math
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  // display
-  document.getElementById("days").innerHTML=days
-  document.getElementById("hours").innerHTML=hours
-  document.getElementById("minutes").innerHTML=minutes
-  document.getElementById("seconds").innerHTML=seconds
-
-
-
-}, 1);
+timer = setInterval (showRemaining, 1) 
+CountDownTimer( "01/01/2022 00:00 AM")
 </script>
+</body>
 </html>
