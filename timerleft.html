@@ -37,12 +37,15 @@
         }
         #days {
             background-color: #FAD29E;
+            font-color: #1E130B;
         }
         #hours {
             background-color: #F1AB4B;
+            font-color: #1E130B;
         }
         #minutes {
             background-color: #D18E47;
+            font-color: #1E130B;
         }
     </style>
 </head>
@@ -60,10 +63,10 @@
             left_days = document.getElementById("days");
             left_hours = document.getElementById("hours");
             left_minutes = document.getElementById("minutes");
-            
+            left_seconds = document.getElementById("seconds");
 
             end = new Date(date);
-            
+            _second = 1000;
             _minute = _second * 60;
             _hour = _minute * 60;
             _day = _hour * 24;
@@ -82,11 +85,12 @@
             days = Math.floor(distance / _day);
             hours = Math.floor((distance % _day) / _hour);
             minutes = Math.floor((distance % _hour) / _minute);
-            
+            seconds = Math.floor((distance % _minute) / _second);
 
             left_days.innerHTML = days + "<br> <span class=\"small\">days</span>";
             left_hours.innerHTML = hours + "<br> <span class=\"small\">hours</span>";
             left_minutes.innerHTML = minutes + "<br> <span class=\"small\">mins</span>";
+            left_seconds.innerHTML = seconds + "<br> <span class=\"small\">secs</span>";
             
         }
 
