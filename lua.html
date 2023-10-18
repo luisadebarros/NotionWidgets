@@ -1,1 +1,5 @@
-<!-- © wdisseny --><div id="contain_moon" style="text-align:center;padding-top:5px;font-size:18px"><div style="font-weight:bold"></div><div style="margin-top:-7px;padding:30px;filter:drop-shadow(0 0 30px hsl(233,100%,92%))"></div><div></div><div style="font-size:small"></div></div><script>(function(){var d=new Date().getDate();var m=document.querySelectorAll("#contain_moon div");var a=new XMLHttpRequest();var url="https://www.icalendar37.net/lunar/api/?lang=pt&month="+(new Date().getMonth()+1)+"&year="+(new Date().getFullYear())+"&size=100&lightColor=rgb(241,229,208)&shadeColor=rgb(207,197,170)&LDZ="+new Date(new Date().getFullYear(),new Date().getMonth(),1)/1000+"";m[1].style.height="100px";a.onreadystatechange=function(){if(a.readyState==4&&a.status==200){var b=JSON.parse(a.responseText);m[1].innerHTML=b.phase[d].svg;if(typeof moon_widget_loaded=="function")moon_widget_loaded(b)}};a.open("GET",url,true);a.send()})()</script>
+
+    <a target="_blank" style="text-decoration:none;" href="https://moonphase.guide/">
+        <img src="https://moonphase.guide/module/MRlVycEExcGxSeFJ1OUlUMitNclhlaFh0V2FvN0FVenNxbEFJTnZqQmRnK0JmWjhyZlRhdHBFa3o4NlJVeWFobM0JRQmFLcmx5UmJFaHU3bW9JR0Njb0gwb3BGZVE4Vk1PMDBnbUZscHJjOEk9.png" alt="Moon Phase Guide" />
+    </a>
+
