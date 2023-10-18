@@ -7,7 +7,7 @@ Source https://codepen.io/ismailvtl/pen/KrVrbp
     
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,600');
 :root {
-    --calendar-bg-color: #cea978;
+    --calendar-bg-color: #e7dfd5;
     --calendar-font-color: #2D1C11;
     --weekdays-border-bottom-color: #788859;
     --calendar-date-hover-color: #875252;
@@ -57,13 +57,12 @@ Source https://codepen.io/ismailvtl/pen/KrVrbp
 }
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7) {
-    border: 1px solid transparent;
-    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+    border: 3px solid var(--weekdays-border-bottom-color);
+  
 }
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7):hover {
-    border: 1px solid transparent;
-    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+    border: 1px solid var(--weekdays-border-bottom-color);
 }
 
 .calendar .calendar-inner .calendar-body div>a {
