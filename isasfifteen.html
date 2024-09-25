@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+    <title>time left - year</title>
+    <style>
+       
+        body {
+            text-align: center;
+            font-family: monospace;
+            background-color: #191919;
+        }
+        .box {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 40px;
+            height: 40px;
+            border: 3px solid #2D1C11;
+            border-radius: 5px;
+            box-shadow: 2px 2px 1px 0px #2D1C11;
+        }
+        h2 {
+            text-align: center;
+            display: inline-block;
+            font-family: 'Caudex', serif;
+            color: #EEE4DC;
+            font-size: xx-large;
+        }
+        h1 {
+            text-align: center;
+            display: inline-block;
+            font-family: 'Caudex', serif;
+        }
+        .t {
+            text-align: center;
+            display: inline-block;
+            font-family: 'Caudex', serif;
+            color: #EEE4DC;
+            font-size: xx-large;
+        }
+        .small {
+            font-size: 15px;
+            font-weight: lighter;
+        }
+        #days {
+            background-color: #788859;
+            font-color: #EEE4DC;
+        }
+        #hours {
+            background-color: #788859;
+            font-color: #EEE4DC;
+        }
+        #minutes {
+            background-color: #788859;
+            font-color: #EEE4DC;
+        }
+    
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="counter">
+        <span class="t">2024 time left:</span>
+        <br>
+        <h2 class="box" id="days"></h2>
+        <h2 class="box" id="hours"></h2>
+        <h2 class="box" id="minutes"></h2>
+        
+    </div>
+
+    <script>
+        function CountDownTimer(date) {
+            left_days = document.getElementById("days");
+            left_hours = document.getElementById("hours");
+            left_minutes = document.getElementById("minutes");
+            left_seconds = document.getElementById("seconds");
+
+            end = new Date(date);
+            _second = 1000;
+            _minute = _second * 60;
+            _hour = _minute * 60;
+            _day = _hour * 24;
+        }
+
+        function showRemaining() {
+            now = new Date();
+            distance = end - now;
+
+            if (distance <= 0) {
+                clearInterval(timer);
+                document.getElementById("counter").innerHTML = "<h2>Nothing! It's Over</h2>";
+                return;
+            }
+
+            days = Math.floor(distance / _day);
+            hours = Math.floor((distance % _day) / _hour);
+            minutes = Math.floor((distance % _hour) / _minute);
+            seconds = Math.floor((distance % _minute) / _second);
+
+            left_days.innerHTML = days + "<br> <span class=\"small\">days</span>";
+            left_hours.innerHTML = hours + "<br> <span class=\"small\">hours</span>";
+            left_minutes.innerHTML = minutes + "<br> <span class=\"small\">mins</span>";
+            left_seconds.innerHTML = seconds + "<br> <span class=\"small\">secs</span>";
+            
+        }
+
+        timer = setInterval(showRemaining, 1000);
+        CountDownTimer("01/01/2025 00:00:00");
+    </script>
+</body>
+</html>
